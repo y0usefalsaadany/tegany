@@ -1,0 +1,16 @@
+models:
+  Role:
+    name: string unique
+    relationships:
+      hasMany: User
+
+  Permission:
+    name: string unique
+
+  RolePermission:
+    role_id: id foreign:roles.id
+    permission_id: id foreign:permission.id
+
+seeders: RolePermission
+
+

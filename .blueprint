@@ -1,0 +1,16 @@
+created:
+    - database/factories/RoleFactory.php
+    - database/factories/PermissionFactory.php
+    - database/factories/RolePermissionFactory.php
+    - database/migrations/2024_04_14_140842_create_roles_table.php
+    - database/migrations/2024_04_14_140843_create_permissions_table.php
+    - database/migrations/2024_04_14_140844_create_role_permissions_table.php
+    - app/Models/Role.php
+    - app/Models/Permission.php
+    - app/Models/RolePermission.php
+    - database/seeders/RolePermissionSeeder.php
+models:
+    User: { name: string, email: string, email_verified_at: 'datetime nullable', password: string, remember_token: 'string nullable' }
+    Role: { name: 'string unique', relationships: { hasMany: User } }
+    Permission: { name: 'string unique' }
+    RolePermission: { role_id: 'id foreign:roles.id', permission_id: 'id foreign:permission.id' }
